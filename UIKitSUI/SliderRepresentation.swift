@@ -23,7 +23,7 @@ struct SliderRepresentation: UIViewRepresentable {
         self.maximumValue = maximumValue
     }
     
-    func makeCoordinator() -> Self.Coordinator {
+    func makeCoordinator() -> Coordinator {
         Coordinator(value: $value, step: step)
     }
     

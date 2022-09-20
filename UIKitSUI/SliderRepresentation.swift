@@ -57,6 +57,7 @@ extension SliderRepresentation {
         
         @objc func valueChanged(_ sender: UISlider) {
             let rounded = round(sender.value / step) * step
+            sender.value = rounded
             value = Double(rounded)
         }
     }

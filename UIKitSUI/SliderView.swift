@@ -12,10 +12,10 @@ struct SliderView: View {
     @Binding private var value: Double
     private let tintColor: Color
     private let step: Float
-    private let minimumValue: Double
-    private let maximumValue: Double
+    private let minimumValue: Float
+    private let maximumValue: Float
     
-    init(value: Binding<Double>, tintColor: Color, step: Float, minimumValue: Double = 0.0, maximumValue: Double = 100.0) {
+    init(value: Binding<Double>, tintColor: Color, step: Float, minimumValue: Float = 0.0, maximumValue: Float = 100.0) {
         self._value = value
         self.tintColor = tintColor
         self.step = step
@@ -26,7 +26,13 @@ struct SliderView: View {
     var body: some View {
         HStack {
             Text(minimumValue.formatted())
-            SliderRepresentation(value: $value, thumbTintColor: tintColor, step: step)
+            SliderRepresentation(
+                value: $value,
+                thumbTintColor: tintColor,
+                step: step,
+                minimumValue: minimumValue,
+                maximumValue: maximumValue
+            )
             Text(maximumValue.formatted())
         }
     }
